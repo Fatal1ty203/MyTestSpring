@@ -4,11 +4,10 @@ import poject.service.RequestUrlProcessing;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 
-public class Main {
+public class Main2 {
     public static void main(String[] args) throws IOException {
         List<String> input = asList("289183", "302348", "302349", "302355", "302359");
 

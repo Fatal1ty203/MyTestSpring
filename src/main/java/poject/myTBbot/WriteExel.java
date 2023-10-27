@@ -13,7 +13,7 @@ import java.util.List;
 
 public class WriteExel {
 
-    static List<Integer> itsTest = new ArrayList<>();
+    static List<String> itsTest = new ArrayList<>();
 
     public static void main(String[] args) {
         WriteExel.AddList();
@@ -21,29 +21,21 @@ public class WriteExel {
         FileOutputStream fileOutput = null;
 
         Sheet sheet = wb.createSheet("Тестируем");
-//        Row row = sheet.createRow(0);
-//        Cell cell = row.createCell(0);
-//        Cell cell2 = row.createCell(1);
-//        cell.setCellValue("Привет");
-//        cell2.setCellValue("Привет");
         int rowNumber = 0;
         int cellNumber = 0;
 
         Row row1 = sheet.createRow(rowNumber);
-        for (int i = 0; i < itsTest.size(); i++){
+        for (int i = 0; i <= itsTest.size() -1; i++){
+            Cell cell1 = row1.createCell(cellNumber++);
             if (cellNumber == 3 ){
+                Cell cell = row1.createCell(cellNumber++);
+                int forFormula = rowNumber;
+                cell.setCellFormula("SUM(C"+ ++forFormula + "*0.1)");
                 row1 = sheet.createRow(++rowNumber);
                 cellNumber = 0;
             }
-
-            Cell cell1 = row1.createCell(cellNumber++);
-
             cell1.setCellValue(itsTest.get(i));
-
         }
-
-
-
 
 
         try {
@@ -58,17 +50,18 @@ public class WriteExel {
     }
 
     private static void AddList(){
-        itsTest.add(1);
-        itsTest.add(2);
-        itsTest.add(3);
-        itsTest.add(4);
-        itsTest.add(5);
-        itsTest.add(6);
-        itsTest.add(7);
-        itsTest.add(8);
-        itsTest.add(9);
-        itsTest.add(10);
-        itsTest.add(11);
+        itsTest.add("15700");
+        itsTest.add("27894");
+        itsTest.add("3567");
+        itsTest.add("4899");
+        itsTest.add("56788");
+        itsTest.add("6000");
+        itsTest.add("75432");
+        itsTest.add("865");
+        itsTest.add("9678");
+        itsTest.add("10555");
+        itsTest.add("11124");
+        itsTest.add("12234");
     }
 
 }
